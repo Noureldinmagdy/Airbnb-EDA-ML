@@ -7,19 +7,19 @@ import seaborn as sns
 pd.set_option('display.max_rows',100)
 
 df = pd.read_csv("listings.csv.gz")
-#print(df.head())
-#print(df.columns)
-#print(df.describe())
-#print(df.info())
-#print(df.shape)
+print(df.head())
+print(df.columns)
+print(df.describe())
+print(df.info())
+print(df.shape)
 
 print(df.isna().sum().sort_values(ascending=False).head(20))
 print((df.isnull().sum() / len(df) *100).sort_values(ascending=False).head(20))
 
 close_to_check = ['neighbourhood', 'neighborhood_overview','license', 'host_about' , 'host_location']
-#for col in close_to_check:
-#    print(f"\n\n--- {col} ---")
-#    print(df[col].head(10))
+for col in close_to_check:
+    print(f"\n\n--- {col} ---")
+    print(df[col].head(10))
 
 cols_to_drop = ['id', 'listing_url', 'scrape_id', 'host_id', 'host_url',
  'host_neighbourhood','description', 'host_name', 'picture_url', 'host_thumbnail_url',
